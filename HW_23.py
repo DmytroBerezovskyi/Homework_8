@@ -10,11 +10,6 @@ def is_year_leap(year):
     leap_year_100 = year%100    #год номер которых кратен 100, — невисокосные
     leap_year_400 = year%400    #год номер которого кратен 400, — високосный
     leap_year_BC = year%3       #Високосными годы в Риме до н. э
-    if year < -45:
-        print('Please enter the correct year, where the minus sign is BC (Before Christ)')
-        year = input('Please enter the year : ')
-        year = int(year)
-        leap_year_BC = year % 3
     if leap_year_BC == 0 and  -45 <= year <=9:
         return True
     elif leap_year_BC != 0 and  -45 <= year < 0:
@@ -27,4 +22,8 @@ def is_year_leap(year):
 
 year = input('Please enter the year : ')
 year = int(year)
+if year < -45:
+    print('Please enter the correct year, where the minus sign is BC (Before Christ)')
+    year = input('Please enter the year : ')
+    year = int(year)
 print(is_year_leap(year))
